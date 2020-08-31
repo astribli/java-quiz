@@ -87,13 +87,18 @@ function displayfirstQuestion() {
     // If gone thru all the questions, end quiz
     if (currentQuestion < 5) {
         currentQuestion++;
-    } 
+    }
     else {
         clearInterval(timeInterval);
         endQuiz = true;
         console.log(endQuiz);
     }
 };
+
+function displayMessage(type, message) {
+    scoreEl.textContent = message;
+    scoreEl.setAttribute('class', type);
+  }
 
 startBtn.addEventListener("click", function () {
     countdown();
@@ -110,6 +115,19 @@ containerEl.addEventListener("click", function (event) {
         var score = document.createElement("h3");
         score.textContent = "is your score!";
         scoreEl.appendChild(score);
-        }
+    }
 });
+    nameBtn.addEventListener('click', function (event) {
+        event.preventDefault();
 
+        var name = document.querySelector("#submit1").value;
+        
+        if (name === '') {
+            displayMessage('error', 'Cannot be blank');
+        } 
+         else {
+            displayMessage('success', 'Registered successfully');
+
+            localStorage.setItem("User", name);
+        }
+    });
