@@ -1,0 +1,53 @@
+header {
+    display: inline-block;
+}
+
+header a {
+    margin: 20px;
+}
+
+.start-page {
+    margin: auto;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+}
+
+#container {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+}
+
+.welcome {
+    margin-bottom: 20px;
+}
+
+#countdown {
+    justify-content: right;
+    margin: 20px;
+}
+
+#scores {
+    margin-left: 20px;
+}
+
+li {
+    font-size: 1.6rem;
+    margin: 50%, auto;
+    text-align: center;
+    cursor: pointer;
+    color: var(--grey);
+    padding: 15px 15px;
+    border: 2px solid var(--grey);
+    width: 50%;
+    background: var(--tertiary);
+    border-radius: 12px;
+    list-style: none;
+}
+
+li:hover {
+    background-color: lightgreen;
+}
