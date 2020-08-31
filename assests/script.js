@@ -1,10 +1,16 @@
 var timerEl = document.querySelector("#countdown");
+var timeLeft = 100
 var startBtn = document.querySelector("#start");
 var containerEl = document.querySelector("#container");
 var currentQuestion = 0;
 var startPage = document.querySelector(".start-page");
 var endQuiz = false;
+var nameInput = document.querySelector("#submit1");
+var nameBtn = document.querySelector("#submit2");
+var scoreEl = document.querySelector("#score");
 
+nameInput.setAttribute("style", "display: none;");
+nameBtn.setAttribute("style", "display: none;");
 
 // Timer that counts down from 100
 function countdown() {
@@ -18,7 +24,9 @@ function countdown() {
             clearInterval(timeInterval);
             // clear div
             timerEl.textContent = "";
-            return;
+        }
+        else if (currentQuestion >= 5) {
+            clearInterval(timeInterval);
         }
         timerEl.textContent = timeLeft;
     }, 1000);
@@ -79,8 +87,9 @@ function displayfirstQuestion() {
     // If gone thru all the questions, end quiz
     if (currentQuestion < 5) {
         currentQuestion++;
-    } else {
-        clearInterval(timer);
+    } 
+    else {
+        clearInterval(timeInterval);
         endQuiz = true;
         console.log(endQuiz);
     }
@@ -91,12 +100,16 @@ startBtn.addEventListener("click", function () {
     displayfirstQuestion();
 });
 containerEl.addEventListener("click", function (event) {
-    console.log(event.target.getAttribute("user-answer"));
     if ((endQuiz == false) && (currentQuestion < 5)) {
         displayfirstQuestion();
     }
     else {
         containerEl.remove();
-    }
+        nameInput.setAttribute("style", "display: block;");
+        nameBtn.setAttribute("style", "display: block;");
+        var score = document.createElement("h3");
+        score.textContent = "is your score!";
+        scoreEl.appendChild(score);
+        }
 });
 
