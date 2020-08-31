@@ -77,7 +77,7 @@ function displayfirstQuestion() {
     startPage.remove();
 
     // If gone thru all the questions, end quiz
-    if (currentQuestion < 5){
+    if (currentQuestion < 5) {
         currentQuestion++;
     } else {
         clearInterval(timer);
@@ -86,24 +86,17 @@ function displayfirstQuestion() {
     }
 };
 
-
 startBtn.addEventListener("click", function () {
     countdown();
     displayfirstQuestion();
 });
-containerEl.addEventListener("click", function(event) {
+containerEl.addEventListener("click", function (event) {
     console.log(event.target.getAttribute("user-answer"));
     if ((endQuiz == false) && (currentQuestion < 5)) {
         displayfirstQuestion();
     }
     else {
         containerEl.remove();
-        // enter name to record quiz score
-        var title = document.createElement("h3");
-        document.getElementById("").style.display = "block";
-        var nameInput = document.querySelector("input[name='your-name']").nodeValue;
-        //title.textContent = "Please enter your initials: ";
-        pageContainer.appendChild(title);
     }
 });
 
